@@ -1,13 +1,14 @@
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import tw, { useDeviceContext } from 'twrnc';
+import { Main } from './pages/Main';
 
 export default function Page() {
   useDeviceContext(tw);
   return (
-    <View style={tw`relative flex h-full w-full bg-black items-center justify-center`}>
+    <View style={tw`relative flex h-full w-full bg-slate-50 items-center justify-center`}>
       <StatusBar style='light' />
-      <Text style={tw`text-white`}>Hello world!</Text>
+      <Main/>
     </View>
   );
 }
