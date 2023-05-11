@@ -27,6 +27,14 @@
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
     },
-    "scheme": "barcode-tracker"
+    "scheme": "barcode-tracker",
+    "plugins": [
+      [
+        "expo-barcode-scanner",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access camera."
+        }
+      ]
+    ]
   }
 }
