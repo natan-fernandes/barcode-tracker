@@ -1,18 +1,22 @@
 import tw from 'twrnc';
-import { BarCodeScanner } from "expo-barcode-scanner"
-import { SafeAreaView } from "react-native/types"
+import { BarCodeScanner } from 'expo-barcode-scanner';
+import { SafeAreaView, View } from 'react-native';
+import { useRouter } from 'expo-router';
 
-export const Scanner = () => {
-  const handleBarCodeScanned = ({ type, data }) => {
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+export default function Scanner() {
+  const router = useRouter();
+
+  const handleBarCodeScanned = ({ data }) => {
+    router.push({ pathname: '/pages/Item', params: { barcode: data }});
   };
 
   return (
-    <SafeAreaView style={tw`relative w-full h-full`}>
+    <SafeAreaView style={tw`bg-slate-950 relative w-full h-full flex justify-center items-center`}>
       <BarCodeScanner
         onBarCodeScanned={handleBarCodeScanned}
-        style={tw`w-full h-1/3`}
+        style={tw`w-full h-full bg-slate-950`}
       />
+      <View style={tw`h-1 w-full absolute top-1/2 bg-red-600 z-10`}></View>
     </SafeAreaView>
   )
 }
