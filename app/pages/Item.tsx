@@ -8,8 +8,8 @@ import { Button } from '../components/Button';
 import { Item } from '../types/item';
 import { itemStorage } from '../data/itemStorage';
 
-export default function Item() {
-  const { barcode } = useLocalSearchParams();
+export default function Item(item?: Item) {
+  const { barcode } = item ?? useLocalSearchParams();
   const { control, handleSubmit} = useForm();
 
   const onSubmit = (data: Item) => {
@@ -27,7 +27,7 @@ export default function Item() {
         <Text style={tw`font-bold text-xl`}>{barcode}</Text>
 
         <Text style={tw`text-xs`}>Nome</Text>
-        <Input name='name' control={control}/>
+        <Input name='name' control={control} defaultValue={item?.name}/>
       </View>
       <View>
         <Button 

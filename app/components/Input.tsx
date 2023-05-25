@@ -4,12 +4,13 @@ import { TextInput } from "react-native/types";
 interface InputProps {
   name: string;
   control: Control<FieldValues>;
+  defaultValue?: string;
 }
 
 export const Input = (props: InputProps) => {
   const { field } = useController({
     control: props.control,
-    defaultValue: '',
+    defaultValue: props.defaultValue ?? '',
     name: props.name,
   });
 
