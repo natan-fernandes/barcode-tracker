@@ -1,5 +1,6 @@
-import { Control, FieldValues, useController } from "react-hook-form";
-import { TextInput } from "react-native/types";
+import tw from 'twrnc';
+import { Control, FieldValues, useController } from 'react-hook-form';
+import { TextInput } from 'react-native';
 
 interface InputProps {
   name: string;
@@ -16,6 +17,7 @@ export const Input = (props: InputProps) => {
 
   return (
     <TextInput
+      style={tw`text-xl`}
       value={field.value}
       onChangeText={field.onChange}
     />
